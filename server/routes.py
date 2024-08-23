@@ -5,7 +5,7 @@ from sqlalchemy import desc
 from flask_restx import Resource, Namespace
 
 
-api_ns = Namespace("guillewebcrawler",
+api_ns = Namespace("api",
                    description="Interact with the best News Crawler!")
 
 

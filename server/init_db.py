@@ -1,4 +1,4 @@
-from flask import abort
+from flask import abort, make_response
 from server.model import News
 import requests
 from bs4 import BeautifulSoup
@@ -40,4 +40,4 @@ def init_db():
         new = News(data)
         new.save()
         news_json.append(data)
-    return news_json
+    return make_response(news_json, 201)

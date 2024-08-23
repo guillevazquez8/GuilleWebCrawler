@@ -15,10 +15,6 @@ class News(db.Model, BaseModelMixin):
         self.points = data['points']
         self.number_of_comments = data['number_of_comments']
 
-    def save(self):
-        db.session.add(self)
-        db.session.commit()
-
     def to_dict(self):
         return {
             "number": self.number,
@@ -36,10 +32,6 @@ class History(db.Model, BaseModelMixin):
     def __init__(self, data):
         self.timestamp = data['timestamp']
         self.endpoint = data['endpoint']
-
-    def save(self):
-        db.session.add(self)
-        db.session.commit()
 
     def to_dict(self):
         return {
