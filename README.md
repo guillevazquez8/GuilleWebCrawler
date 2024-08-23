@@ -10,6 +10,7 @@ You need to know some things to start the web crawler api.
 
 ## How to run it
 To start the API, just write "flask run" in the terminal from inside the server, and it should start smoothly. 
+
 For the documentation, you must go to localhost:5000/doc/
 
 ## Endpoints
