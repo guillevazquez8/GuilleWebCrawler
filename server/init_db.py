@@ -24,6 +24,7 @@ def init_db():
             combined_entry = f"{current_line} {next_line}"
             entries.append(combined_entry)
     # iterate over entries and find each number, title, points, and number of comments, through regex
+    news_json = []
     for entry in entries:
         number_match = re.match(r'^\d+', entry)
         title_match = re.search(r'^(?:\d+\.\s)(.*?)(?:\s\([^)]+\.[^)]+\))?(?=\s\d+ points|$)', entry)
@@ -38,4 +39,5 @@ def init_db():
         }
         new = News(data)
         new.save()
-    return entries
+        news_json.append(data)
+    return news_json

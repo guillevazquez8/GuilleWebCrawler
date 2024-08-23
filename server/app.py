@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_restx import Api
 from flask_migrate import Migrate
-from server.routes import AllNews, Refresh, MoreFiveWords, LessFiveWords
+from server.routes import api_ns
 from server.db import db
 from server.init_db import init_db
 
@@ -19,10 +19,7 @@ def create_app(test_config=None):
               version="1.0",
               description="Interact with the best News Crawler!")
     # namespaces registering
-    api.add_resource(AllNews, "/news")
-    api.add_resource(Refresh, "/refresh")
-    api.add_resource(MoreFiveWords, "/title_more_5_words")
-    api.add_resource(LessFiveWords, "/title_less_5_words")
+    api.add_namespace(api_ns)
 
     with app.app_context():
         db.drop_all()
