@@ -15,6 +15,10 @@ class BaseModelMixin:
         db.session.commit()
 
     @classmethod
+    def delete_all(cls):
+        return cls.query.delete()
+
+    @classmethod
     def get_all(cls):
         return cls.query.all()
 
