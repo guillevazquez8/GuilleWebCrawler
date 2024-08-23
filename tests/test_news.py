@@ -16,7 +16,8 @@ class TestNews:
         assert response.status_code == 200
         number_of_comments = sys.maxsize
         for entry in response.json:
-            assert len(entry['title'].split()) > 5
+            count = sum(1 for word in entry['title'].split() if any(c.isalpha() for c in word))
+            assert count > 5
             assert entry['number_of_comments'] <= number_of_comments
             number_of_comments = entry['number_of_comments']
 
@@ -25,6 +26,7 @@ class TestNews:
         assert response.status_code == 200
         points = sys.maxsize
         for entry in response.json:
-            assert len(entry['title'].split()) <= 5
+            count = sum(1 for word in entry['title'].split() if any(c.isalpha() for c in word))
+            assert count <= 5
             assert entry['points'] <= points
             points = entry['points']
