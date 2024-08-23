@@ -1,7 +1,8 @@
 from flask import Flask, request
 from flask_restx import Api
 from flask_migrate import Migrate
-from server.routes import api_ns
+from server.routes.news import api_ns
+from server.routes.history import history_ns
 from server.db import db
 from server.init_db import init_db
 from server.model import History
@@ -18,6 +19,7 @@ api = Api(app,
           description="Interact with the best News Crawler!")
 # namespaces registering
 api.add_namespace(api_ns)
+api.add_namespace(history_ns)
 
 with app.app_context():
     db.drop_all()
@@ -28,7 +30,7 @@ with app.app_context():
 
 @app.after_request
 def after_request(response):
-    if request.method != 'OPTIONS' and request.endpoint not in ['news', 'refresh']:
+    if request.path in ['/api/title_more_5_words', '/api/title_less_5_words']:
         data = {
             "timestamp": datetime.datetime.now().strftime("%I:%M%p on %B %d, %Y"),
             "endpoint": request.path
