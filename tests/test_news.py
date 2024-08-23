@@ -12,7 +12,7 @@ class TestNews:
         assert len(response.json) == 30
 
     def test_more_5_words(self, client):
-        response = client.get("/more_5_words")
+        response = client.get("/title_more_5_words")
         assert response.status_code == 200
         number_of_comments = sys.maxsize
         for entry in response.json:
@@ -22,7 +22,7 @@ class TestNews:
             number_of_comments = entry['number_of_comments']
 
     def test_lte_5_words(self, client):
-        response = client.get("/less_5_words")
+        response = client.get("/title_less_5_words")
         assert response.status_code == 200
         points = sys.maxsize
         for entry in response.json:

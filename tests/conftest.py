@@ -1,6 +1,4 @@
 from server.app import create_app
-from server.db import db
-from server.init_db import init_db
 import pytest
 from server.config.config_test import SQLALCHEMY_DATABASE_URI
 
