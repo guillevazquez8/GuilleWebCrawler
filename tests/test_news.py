@@ -20,4 +20,11 @@ class TestNews:
             assert entry['number_of_comments'] <= number_of_comments
             number_of_comments = entry['number_of_comments']
 
-
+    def test_lte_5_words(self, client):
+        response = client.get("/less_5_words")
+        assert response.status_code == 200
+        points = sys.maxsize
+        for entry in response.json:
+            assert len(entry['title'].split()) <= 5
+            assert entry['points'] <= points
+            points = entry['points']

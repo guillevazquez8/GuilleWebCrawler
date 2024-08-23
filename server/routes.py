@@ -24,8 +24,14 @@ def refresh_first_30_news():
 @app_web_crawler.get("/more_5_words")
 def get_news_with_more_than_5_words_in_title():
     all_news_ordered = News.query.order_by(desc(News.number_of_comments)).all()
+    # improve it to avoid counting symbols
     news = [new for new in all_news_ordered if len(new.title.split()) > 5]
     news_json = [new.to_dict() for new in news]
     return make_response(news_json)
 
-#@app_web_crawler.get("/less_5_words"))
+@app_web_crawler.get("/less_5_words")
+def get_news_with_lte_5_words_in_title():
+    all_news_ordered = News.query.order_by(desc(News.points)).all()
+    news = [new for new in all_news_ordered if len(new.title.split()) <= 5]
+    news_json = [new.to_dict() for new in news]
+    return make_response(news_json)
