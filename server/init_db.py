@@ -10,7 +10,7 @@ def init_db():
     news = requests.get("https://news.ycombinator.com/news")
     if news.status_code != 200:
         abort(500, "Server Error: There was an issue calling Hacking News server")
-    # convert html response in string
+    # convert html response to string
     html_str = BeautifulSoup(news.text, 'html.parser').text
     # separate html string in lines
     lines = html_str.split('\n')
@@ -27,7 +27,7 @@ def init_db():
     news_json = []
     for entry in entries:
         number_match = re.match(r'^\d+', entry)
-        title_match = re.search(r'^(?:\d+\.\s)(.*?)(?:\s\([^)]+\.[^)]+\))?(?=\s\d+ points|$)', entry)
+        title_match = re.search(r'^\d+\.\s(.*?)(?:\s\([^)]+\.[^)]+\))?(?=\s\d+ points|$)', entry)
         points_match = re.search(r'(\d+) points', entry)
         comments_match = re.search(r'(\d+)\scomments', entry)
         # assign values to data, some entries dont have points and/or comments, in case they don't assign value 0
