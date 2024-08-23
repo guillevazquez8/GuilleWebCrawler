@@ -8,11 +8,11 @@ You need to know some things to start the web crawler api.
 2. Install all libraries in the requirements.txt file.
 3. You'll need to configure the database URL in the file server/config/config.py with your preferred database.
 
-## HOW TO RUN IT
+## How to run it
 To start the API, just write "flask run" in the terminal from inside the server, and it should start smoothly. 
 For the documentation, you must go to localhost:5000/doc/
 
-## ENDPOINTS
+## Endpoints
 This API is very simple, as it only includes 5 endpoints:
 - /api/news : returns first 30 news to appear in news.ycombinator.com/news
 - /api/refresh : refresh the first 30 news, as they change every now and then 
