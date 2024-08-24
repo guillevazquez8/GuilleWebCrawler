@@ -4,11 +4,11 @@ Welcome to Guille's Web Crawler!
 
 ## API Configuration
 You need to know some things before starting the web crawler api. It runs with python, if you don't have experience running python APIs, you sould follow the next steps:
-1. Choose the Python interpreter: I suggest you to choose Python3.11 as it is the version I've used to develop it.
-2. Create the virtual environment: this is done with the next command in terminal `python3.11 -m venv ./venv`
-3. Activate the virtual environment: with the next terminal command `source .venv/bin/activate`
-4. Install all libraries in the requirements.txt file: command `pip install -r requirements.txt`
-5. Configure the database URL in the config: the file is in `server/config/config.py`, there you should add your preferred database config (dbms, user, pw, db name, etc.).
+1. **Choose the Python interpreter:** I suggest you to choose Python3.11 as it is the version I've used to develop it.
+2. **Create the virtual environment:** this is done with the next command in terminal `python3.11 -m venv ./venv`
+3. **Activate the virtual environment:** with the next terminal command `source .venv/bin/activate`
+4. **Install all libraries in the requirements.txt file:** command `pip install -r requirements.txt`
+5. **Configure the database URL in the config:** the file is in `server/config/config.py`, there you should add your preferred database config (dbms, user, pw, db name, etc.).
 
 ## How to run it
 To start the API, just write `flask run` in the terminal from inside the server, and it should start smoothly. 
