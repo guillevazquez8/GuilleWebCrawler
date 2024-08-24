@@ -25,7 +25,7 @@ This API is very simple, as it only includes 5 endpoints:
 
 ## Some details regarding the API's functioning
 
-- **Database intialization:** this API initializes its database every time you start it. It's not common to do it like this, but because the database information is just the first 30 news from another website, and these vary quite often, I thought it would be useful if it got updated every time you start the application. It also includes an endpoint `/refresh` to update the db with the first 30 news at any moment.
+- **Database initialization:** this API initializes its database every time you start it. It's not common to do it like this, but because the database information is just the first 30 news from another website, and these vary quite often, I thought it would be useful if it got updated every time you start the application. It also includes an endpoint `/refresh` to update the db with the first 30 news at any moment.
   
 -  **Data scraping:** to get the first 30 news from this website and save only some data in our database, I've included a function with regular expressions that can be found in the file `/server/init_db.py`
 
