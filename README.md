@@ -3,7 +3,7 @@
 Welcome to Guille's Web Crawler! 
 
 ## API Configuration
-You need to know some things before starting the web crawler api. It runs with python, if you don't have experience running python APIs, you sould follow the next steps:
+It runs with python, if you don't have experience running python APIs, you should follow the next steps:
 1. **Choose the Python interpreter:** I suggest you to choose Python3.11 as it is the version I've used to develop it.
 2. **Create the virtual environment:** this is done with the next command in terminal `python3.11 -m venv ./venv`
 3. **Activate the virtual environment:** with the next terminal command `source .venv/bin/activate`
